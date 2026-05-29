@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>박인정 · 작은 브랜드의 전략가</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600&family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --ink: #1a1a18; --ink-soft: #5a5a54; --ink-muted: #9a9a90;
+  --cream: #faf8f3; --warm: #f0ece0;
+  --gold: #c8a96e; --gold-light: #e8d9b8;
+  --accent: #2d4a3e; --border: rgba(26,26,24,0.1);
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--ink); }
+
+/* NAV */
+.nav { position: sticky; top: 0; z-index: 100; background: rgba(250,248,243,0.96); border-bottom: 0.5px solid var(--border); backdrop-filter: blur(8px); padding: 0 3rem; display: flex; align-items: center; justify-content: space-between; height: 56px; }
+.nav-logo { font-family: 'DM Serif Display', serif; font-size: 18px; }
+.nav-logo em { font-style: italic; color: var(--gold); }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a { font-size: 11px; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft); text-decoration: none; cursor: pointer; transition: color 0.2s; }
+.nav-links a:hover { color: var(--ink); }
+
+/* HERO */
+.hero { min-height: 90vh; display: grid; grid-template-columns: 1fr 1fr; }
+.hero-left { padding: 6rem 4rem; display: flex; flex-direction: column; justify-content: center; }
+.eyebrow { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 10px; }
+.eyebrow::before { content:''; display:block; width:28px; height:0.5px; background:var(--gold); }
+.hero-name { font-family: 'Noto Serif KR', serif; font-size: clamp(3rem, 5vw, 4.5rem); font-weight: 300; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 0.4rem; }
+.hero-name strong { font-weight: 600; }
+.hero-title { font-family: 'DM Serif Display', serif; font-size: 1.25rem; font-style: italic; color: var(--ink-soft); margin-bottom: 2rem; }
+.hero-tagline { font-size: 14px; line-height: 1.9; color: var(--ink-soft); max-width: 400px; margin-bottom: 3rem; font-weight: 300; }
+.hero-tagline strong { color: var(--ink); font-weight: 500; }
+.cta-wrap { display: flex; gap: 12px; }
+.btn-p { background: var(--accent); color: #fff; border: none; padding: 12px 28px; font-size: 13px; font-family: 'DM Sans',sans-serif; cursor: pointer; border-radius: 2px; letter-spacing: 0.04em; transition: background 0.2s; }
+.btn-p:hover { background: #1e3329; }
+.btn-o { background: transparent; color: var(--ink); border: 0.5px solid var(--border); padding: 12px 28px; font-size: 13px; font-family: 'DM Sans',sans-serif; cursor: pointer; border-radius: 2px; letter-spacing: 0.04em; transition: background 0.2s; }
+.btn-o:hover { background: var(--warm); }
+.hero-right { background: var(--warm); display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 4rem; position: relative; overflow: hidden; }
+.hero-img { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; opacity: 0.4; }
+.stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 0.5px solid var(--border); position: relative; z-index: 1; }
+.stat { background: var(--cream); padding: 1.75rem; }
+.stat-n { font-family: 'DM Serif Display', serif; font-size: 2.8rem; line-height: 1; margin-bottom: 6px; }
+.stat-n em { font-style: italic; color: var(--gold); font-size: 2rem; }
+.stat-l { font-size: 11px; color: var(--ink-muted); letter-spacing: 0.06em; }
+
+/* SECTIONS */
+.section { padding: 5rem 4rem; }
+.s-label { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 8px; }
+.s-label::before { content:''; display:block; width:20px; height:0.5px; background:var(--gold); }
+.s-title { font-family: 'Noto Serif KR', serif; font-size: clamp(1.8rem,3vw,2.4rem); font-weight: 300; line-height: 1.3; margin-bottom: 1rem; }
+.s-sub { font-size: 14px; color: var(--ink-soft); line-height: 1.85; max-width: 560px; font-weight: 300; }
+.divider { height: 0.5px; background: var(--border); margin: 0 4rem; }
+
+/* ABOUT */
+.about { background: var(--accent); color: #fff; padding: 5rem 4rem; display: grid; grid-template-columns: 280px 1fr; gap: 4rem; align-items: center; }
+.about-left { display: flex; flex-direction: column; gap: 2rem; }
+.about-portrait { width: 280px; height: 340px; background: rgba(255,255,255,0.08); border: 0.5px solid rgba(255,255,255,0.15); border-radius: 2px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.about-portrait img { width: 100%; height: 100%; object-fit: cover; }
+.about .s-label { color: var(--gold-light); }
+.about .s-label::before { background: var(--gold-light); }
+.about .s-title { color: #fff; }
+.about p { font-size: 15px; line-height: 1.95; font-weight: 300; color: rgba(255,255,255,0.8); margin-bottom: 1rem; }
+.about p strong { color: #fff; font-weight: 500; }
+.tag { display: inline-block; border: 0.5px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.65); font-size: 11px; padding: 5px 13px; border-radius: 2px; margin: 4px 4px 0 0; letter-spacing: 0.04em; }
+
+/* STRENGTH */
+.strengths { background: var(--cream); }
+.strength-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2.5rem; }
+.strength-box { background: transparent; padding: 2rem; border: 0.5px solid var(--border); border-radius: 2px; transition: background 0.2s; }
+.strength-box:hover { background: var(--warm); }
+.strength-icon { font-size: 18px; color: var(--gold); margin-bottom: 0.75rem; }
+.strength-title { font-family: 'Noto Serif KR', serif; font-size: 15px; font-weight: 400; margin-bottom: 0.6rem; }
+.strength-desc { font-size: 12px; color: var(--ink-soft); line-height: 1.8; font-weight: 300; }
+.strength-list { margin-top: 0.75rem; padding-top: 0.75rem; border-top: 0.5px solid var(--border); }
+.strength-list li { font-size: 12px; color: var(--ink-muted); line-height: 1.7; margin-left: 1rem; }
+
+/* COMP */
+.comp-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border); border: 0.5px solid var(--border); margin-top: 3rem; }
+.comp-card { background: var(--cream); padding: 2rem 1.75rem; transition: background 0.2s; }
+.comp-card:hover { background: var(--warm); }
+.comp-icon { font-size: 24px; color: var(--gold); margin-bottom: 1rem; }
+.comp-t { font-family: 'Noto Serif KR', serif; font-size: 15px; font-weight: 400; margin-bottom: 0.6rem; }
+.comp-d { font-size: 12px; color: var(--ink-soft); line-height: 1.8; font-weight: 300; }
+
+/* CASES */
+.cases { background: var(--warm); }
+.cases-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; margin-top: 2rem; }
+.case-card { background: var(--cream); border: 0.5px solid var(--border); padding: 2.5rem; cursor: pointer; border-radius: 2px; }
+.case-featured { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+.case-featured-left { }
+.case-featured-right { }
+.case-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.case-gallery img { width: 100%; height: 220px; object-fit: cover; border-radius: 2px; border: 0.5px solid var(--border); }
+.case-gallery.large-first > :first-child { grid-column: 1 / -1; height: 280px; }
+.c-tag { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; }
+.c-title { font-family: 'Noto Serif KR', serif; font-size: 18px; font-weight: 400; line-height: 1.5; margin-bottom: 1rem; color: var(--ink); }
+.c-desc { font-size: 13px; color: var(--ink-soft); line-height: 1.85; margin-bottom: 1.5rem; font-weight: 300; }
+.c-bar-wrap { display: flex; align-items: center; gap: 10px; }
+.c-bar { flex: 1; height: 2px; background: rgba(26,26,24,0.1); border-radius: 1px; overflow: hidden; }
+.c-fill { height: 100%; background: var(--accent); }
+.c-pct { font-size: 11px; color: var(--ink-muted); min-width: 60px; text-align: right; }
+
+/* GRID CASES */
+.grid-cases { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 2rem; }
+.grid-case-card { background: var(--cream); border: 0.5px solid var(--border); overflow: hidden; border-radius: 2px; transition: transform 0.2s; }
+.grid-case-card:hover { transform: translateY(-3px); }
+.grid-case-img { width: 100%; height: 180px; object-fit: cover; }
+.grid-case-content { padding: 1.75rem; }
+.grid-case-content .c-tag { margin-bottom: 0.5rem; }
+.grid-case-content .c-title { font-size: 14px; margin-bottom: 0.5rem; }
+.grid-case-content .c-desc { font-size: 11px; margin-bottom: 1rem; }
+
+/* PROBLEMS */
+.problems-list { margin-top: 3rem; border: 0.5px solid var(--border); }
+.p-item { display: grid; grid-template-columns: 80px 1fr auto; gap: 2rem; padding: 2rem 2.5rem; border-bottom: 0.5px solid var(--border); align-items: start; transition: background 0.2s; }
+.p-item:last-child { border-bottom: none; }
+.p-item:hover { background: var(--warm); }
+.p-num { font-family: 'DM Serif Display', serif; font-size: 3rem; color: var(--gold-light); font-style: italic; line-height: 1; }
+.p-q { font-family: 'Noto Serif KR', serif; font-size: 14px; font-weight: 400; line-height: 1.65; margin-bottom: 0.5rem; }
+.p-a { font-size: 12px; color: var(--ink-soft); line-height: 1.8; font-weight: 300; }
+.p-res { text-align: right; white-space: nowrap; }
+.p-metric { font-family: 'DM Serif Display', serif; font-size: 1.8rem; font-style: italic; color: var(--accent); line-height: 1; }
+.p-ml { font-size: 10px; color: var(--ink-muted); letter-spacing: 0.06em; margin-top: 4px; }
+
+/* ETC */
+.etc { background: var(--warm); }
+.etc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; margin-top: 3rem; }
+.etc-lbl { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 0.5px solid var(--border); }
+.etc-item { font-size: 13px; color: var(--ink-soft); line-height: 1.75; padding: 7px 0; border-bottom: 0.5px solid var(--border); font-weight: 300; }
+.etc-item strong { color: var(--ink); font-weight: 400; }
+
+/* CONTACT */
+.contact { background: var(--ink); color: #fff; padding: 5rem 4rem; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; position: relative; overflow: hidden; }
+.contact-bg { position: absolute; top: 0; right: 0; width: 50%; height: 100%; object-fit: cover; opacity: 0.15; }
+.contact-left { position: relative; z-index: 1; }
+.contact-right { position: relative; z-index: 1; }
+.contact .s-label { color: var(--gold); }
+.contact .s-label::before { background: var(--gold); }
+.ct { font-family: 'Noto Serif KR', serif; font-size: clamp(1.8rem,3vw,2.4rem); font-weight: 300; color: #fff; line-height: 1.4; margin-bottom: 1.5rem; }
+.cs { font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.85; font-weight: 300; margin-bottom: 2rem; }
+.c-rows { display: flex; flex-direction: column; gap: 1px; background: rgba(255,255,255,0.07); border: 0.5px solid rgba(255,255,255,0.1); }
+.c-row { display: flex; align-items: center; gap: 1rem; padding: 1.25rem 1.5rem; background: rgba(10,10,8,0.5); transition: background 0.2s; }
+.c-row:hover { background: rgba(45,74,62,0.5); }
+.c-row .icon { color: var(--gold); font-size: 18px; }
+.c-row .lbl { font-size: 13px; color: rgba(255,255,255,0.5); }
+.c-row .val { margin-left: auto; font-size: 13px; color: #fff; }
+.footer { background: var(--ink); border-top: 0.5px solid rgba(255,255,255,0.06); padding: 1.25rem 4rem; display: flex; justify-content: space-between; }
+.footer span { font-size: 11px; color: rgba(255,255,255,0.25); letter-spacing: 0.06em; }
+.footer em { font-family: 'DM Serif Display', serif; font-style: italic; }
+
+@media (max-width: 768px) {
+  .about { grid-template-columns: 1fr; }
+  .about-portrait { display: none; }
+  .case-featured { grid-template-columns: 1fr; }
+  .grid-cases { grid-template-columns: 1fr; }
+  .hero { grid-template-columns: 1fr; }
+  .hero-right { min-height: 60vh; }
+  .nav { padding: 0 1.5rem; }
+  .section { padding: 3rem 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-logo">박인정 <em>Shine</em></div>
+  <ul class="nav-links">
+    <li><a href="#about">소개</a></li>
+    <li><a href="#strengths">강점</a></li>
+    <li><a href="#cases">케이스</a></li>
+    <li><a href="#problems">문제 해결</a></li>
+    <li><a href="#contact">연락</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="eyebrow">Brand Strategist · 19 years</div>
+    <h1 class="hero-name">작은 브랜드의<br><strong>전략가</strong></h1>
+    <p class="hero-title">Making your brand Shine</p>
+    <p class="hero-tagline">브랜드가 '생존'이 아닌 <strong>존재 이유</strong>로 세워질 때 오래 살아남습니다.<br>콘셉트 설계부터 퍼포먼스 실행까지, 처음부터 끝까지 함께합니다.</p>
+    <div class="cta-wrap">
+      <button class="btn-p" onclick="document.getElementById('cases').scrollIntoView({behavior:'smooth'})">케이스 스터디 보기</button>
+      <button class="btn-o" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">연락하기</button>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=900&fit=crop" alt="Brand workspace" class="hero-img">
+    <div class="stats-grid">
+      <div class="stat"><div class="stat-n">19<em>yr</em></div><div class="stat-l">브랜드 전략 경력</div></div>
+      <div class="stat"><div class="stat-n">540<em>%</em></div><div class="stat-l">DB 수 성장 달성</div></div>
+      <div class="stat"><div class="stat-n">DB<em>↓78%</em></div><div class="stat-l">단가 절감</div></div>
+      <div class="stat"><div class="stat-n">95<em>.7</em></div><div class="stat-l">강의 만족도</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-left">
+    <div class="about-portrait">
+      <img src="./images/studio_portrait_18.png" alt="Shine Park Profile">
+    </div>
+    <div>
+      <div class="s-label">About</div>
+      <h2 class="s-title">브랜드를<br>빛나게<br>하는 사람</h2>
+    </div>
+  </div>
+  <div>
+    <p>컨설턴트로 일하며 <strong>단기 프로젝트의 한계</strong>를 반복적으로 경험했습니다. 브랜드는 론칭보다 그 이후의 시간이 훨씬 중요한데, 저는 항상 시작만 함께하고 자리를 비워야 했습니다.</p>
+    <p>작은 조직의 고민과 현실을 직간접적으로 가까이 보아왔기에, <strong>대표의 시각과 구성원의 입장</strong>을 함께 이해합니다. 외부 고객뿐 아니라 조직 안에서도 의미 있는 브랜딩을 만들어가고 싶습니다.</p>
+    <p>현재 aSSIST·Geneva SDG Management School에서 <strong>경영학 박사과정</strong> 중입니다. '오래 살아남는 브랜드'의 조건을 연구하며, 현장 경험과 이론적 깊이를 동시에 쌓고 있습니다.</p>
+    <div style="margin-top:1.5rem">
+      <span class="tag">Branding</span><span class="tag">Growth Marketing</span><span class="tag">Performance</span><span class="tag">PM</span><span class="tag">강의·저술</span>
+    </div>
+  </div>
+</section>
+
+<!-- STRENGTHS -->
+<section class="section strengths" id="strengths">
+  <div class="s-label">Strengths</div>
+  <h2 class="s-title">전략가의 강점</h2>
+  <p class="s-sub">실무·문제해결·협업에서 검증된 3가지 핵심 강점</p>
+  
+  <div class="strength-grid">
+    <div class="strength-box">
+      <div class="strength-icon">◆</div>
+      <div class="strength-title">실무: 브랜드 0→1 통합 기획력</div>
+      <div class="strength-desc">포지셔닝부터 스토리까지 브랜드의 존재 이유를 완성하는 전략형 마케터. 시장분석 기반 콘셉트·네이밍·BI·시그니처 개발을 일괄 기획합니다.</div>
+      <ul class="strength-list">
+        <li><strong>라떼킹:</strong> 브랜드 정체성 설계 & 와사비라떼 등 시그니처 메뉴</li>
+        <li><strong>시나본:</strong> 글로벌 브랜드 현지화 & 백화점 입점</li>
+        <li><strong>북창동순두부:</strong> 브랜드 아이덴티티 완전 리뉴얼</li>
+      </ul>
+    </div>
+
+    <div class="strength-box">
+      <div class="strength-icon">▲</div>
+      <div class="strength-title">실무: 데이터 기반 퍼포먼스 최적화</div>
+      <div class="strength-desc">단순 광고가 아니라 퍼널 구조부터 개선. 유입·전환·재구매 전 단계의 효율을 데이터로 검증하고 극대화합니다.</div>
+      <ul class="strength-list">
+        <li><strong>DB 단가 78% 절감</strong> - 마케팅 퍼널 재설계</li>
+        <li><strong>월평균 DB 22% 성장</strong> - 광고 최적화</li>
+        <li>연간 6억 규모 4개 브랜드 동시 관리</li>
+      </ul>
+    </div>
+
+    <div class="strength-box">
+      <div class="strength-icon">◈</div>
+      <div class="strength-title">문제해결: 표류 프로젝트 정상화</div>
+      <div class="strength-desc">방향을 잃은 프로젝트를 스스로 PM으로 자청하여 구조화·체계화. 팀빌딩부터 론칭까지 전 과정을 추진합니다.</div>
+      <ul class="strength-list">
+        <li><strong>9개월 표류 → 7개월 론칭</strong> - 학원 신사업 PM</li>
+        <li><strong>CARS 상권분석 시스템</strong> - 기획·개발·40회 분석</li>
+        <li>거제농협 외식사업 타당성분석 리딩</li>
+      </ul>
+    </div>
+
+    <div class="strength-box">
+      <div class="strength-icon">◎</div>
+      <div class="strength-title">협업: 교육·전달 역량</div>
+      <div class="strength-desc">복잡한 전략을 누구나 이해할 수 있는 실무 언어로 구조화. 6년 강의 경험으로 수강생 3명의 실제 브랜드 론칭을 지도했습니다.</div>
+      <ul class="strength-list">
+        <li><strong>강의 만족도 95.7점</strong> (5년 평균)</li>
+        <li><strong>수강생 브랜드 론칭 3건</strong> - 교육을 성과로</li>
+        <li>협회·공공기관 강의 다수</li>
+      </ul>
+    </div>
+
+    <div class="strength-box">
+      <div class="strength-icon">◎</div>
+      <div class="strength-title">협업: 이해관계자 조율</div>
+      <div class="strength-desc">대표·실무자·점주·협력업체를 잇는 '번역자'. 다양한 조직 문화를 경험했기에 입장을 동시에 이해합니다.</div>
+      <ul class="strength-list">
+        <li>다양한 조직 문화 경험</li>
+        <li><strong>OKR 도입으로 20% 성과 향상</strong></li>
+        <li>다층적 커뮤니케이션 역량</li>
+      </ul>
+    </div>
+
+    <div class="strength-box">
+      <div class="strength-icon">◆</div>
+      <div class="strength-title">과학적 근거: 성격 분석</div>
+      <div class="strength-desc">버크만 프리뷰·사주분석으로 확인된 강점</div>
+      <ul class="strength-list">
+        <li><strong>기획/전략 최고점</strong> - 아이디어 → 구조</li>
+        <li><strong>공감 이해력 보통의 2배</strong> - 맥락 파악</li>
+        <li><strong>위기 대처 능력 88점</strong> - 변화에 강함</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--cream)">
+  <div class="s-label">Core Competencies</div>
+  <h2 class="s-title">핵심역량</h2>
+  <div class="comp-grid">
+    <div class="comp-card"><div class="comp-icon">◈</div><div class="comp-t">브랜드 콘셉트·아이덴티티</div><div class="comp-d">포지셔닝·네이밍·BI·스토리텔링. 라떼킹·시나본·북창동순두부·유어타올 등 다업종 론칭·리브랜딩 주도.</div></div>
+    <div class="comp-card"><div class="comp-icon">↑</div><div class="comp-t">퍼포먼스 마케팅</div><div class="comp-d">마케팅 퍼널 재설계, 네이버·메타 광고 최적화. DB 단가 78% 절감·월평균 DB 22% 성장.</div></div>
+    <div class="comp-card"><div class="comp-icon">✦</div><div class="comp-t">콘텐츠 마케팅</div><div class="comp-d">브랜드 스토리 서적 출간, 칼럼 연재. 다음에 라떼킹 스토리 18회 연재, 예비창업자 신뢰 구축.</div></div>
+    <div class="comp-card"><div class="comp-icon">→</div><div class="comp-t">신사업 PM</div><div class="comp-d">0→1 론칭, 마켓리서치, BM 설계. 9개월 표류 프로젝트 자청 PM, 7개월 만에 론칭 완료.</div></div>
+    <div class="comp-card"><div class="comp-icon">◎</div><div class="comp-t">강의·저술</div><div class="comp-d">한양사이버대 겸임교수 6년, 만족도 95.7점. 외식 관련 전공서·브랜드 서적 7권 기획·공저.</div></div>
+    <div class="comp-card"><div class="comp-icon">⊕</div><div class="comp-t">외식·F&B 도메인</div><div class="comp-d">30개 매장 오픈바이징, 메뉴 개발. 상권분석 시스템 기획·개발, 전국 40회 분석.</div></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CASES -->
+<section class="section cases" id="cases">
+  <div class="s-label">Case Studies</div>
+  <h2 class="s-title">대표 케이스 스터디</h2>
+  <p class="s-sub">전략→실행→성과까지, 제가 어디를 책임지는지 보이는 대표 프로젝트</p>
+  
+  <!-- FEATURED CASE -->
+  <div class="case-card case-featured">
+    <div class="case-featured-left">
+      <div class="c-tag">Branding · Contents · 15년+ 파트너십</div>
+      <div class="c-title">라떼킹 — 스타트업 1개 매장 → 전국 30개 프랜차이즈 확장의 모든 과정</div>
+      
+      <div style="background:rgba(26,26,24,0.03); padding:1.5rem; border-radius:2px; margin-bottom:1.5rem;">
+        <p style="font-size:13px; color:var(--ink); line-height:1.8; margin-bottom:0.75rem;"><strong>브랜드 정체성 설계:</strong> 가로수길 1개 매장의 스타트업에서 '라떼 전문점'이라는 명확한 포지셔닝 수립. '소통, 개방, 재미, 젊음, 착함'을 핵심 키워드로 설정.</p>
+        <p style="font-size:13px; color:var(--ink); line-height:1.8; margin-bottom:0.75rem;"><strong>시그니처 메뉴 개발:</strong> 와사비라떼(국내 최초)·소금라떼·소주라떼·1리터 커피 등. 각 메뉴는 브랜드 정체성을 구현하는 전략적 도구.</p>
+        <p style="font-size:13px; color:var(--ink); line-height:1.8;"><strong>통합 마케팅:</strong> 홈페이지·SNS·브랜드 콜라보, 출판물 기획(전자책·실무서·다음 연재 18회).</p>
+      </div>
+
+      <div style="margin-bottom:1.5rem;">
+        <strong style="color:var(--ink); font-size:13px; display:block; margin-bottom:0.75rem;">성과</strong>
+        <ul style="margin-left:1rem; font-size:12px; color:var(--ink-soft); list-style:none; padding:0;">
+          <li style="margin-bottom:0.5rem;">🔹 초기 1개 → 전국 30개 직영·가맹 매장 확장</li>
+          <li style="margin-bottom:0.5rem;">🔹 페이스북 200명 → 12,200명 (6,100% 성장)</li>
+          <li style="margin-bottom:0.5rem;">🔹 SBS뉴스·tvN 자연 노출 다수</li>
+          <li style="margin-bottom:0.5rem;">🔹 가맹점 문의 30% 이상 증가</li>
+          <li>🔹 15년 이상 지속된 파트너십 (2024~2025 리브랜딩까지)</li>
+        </ul>
+      </div>
+
+      <div style="display:flex; align-items:center; gap:1rem;">
+        <div style="flex:1;">
+          <div style="font-size:11px; color:var(--ink-muted); letter-spacing:0.06em;">기여도</div>
+        </div>
+        <div class="c-bar-wrap"><div class="c-bar"><div class="c-fill" style="width:92%"></div></div></div>
+        <div class="c-pct">92%</div>
+      </div>
+    </div>
+
+    <div class="case-featured-right">
+      <div class="case-gallery large-first">
+        <img src="./images/와사비라떼_컵샷.png" alt="와사비라떼">
+        <img src="./images/라떼킹로고.jpg" alt="라떼킹 로고">
+        <img src="./images/가로수길점.jpg" alt="가로수길 매장">
+        <img src="./images/1리터커피.jpg" alt="1리터 커피">
+      </div>
+      <div style="margin-top:1rem; font-size:11px; color:var(--ink-muted); text-align:center;">와사비라떼 · 라떼킹 로고 · 가로수길 매장 · 1리터 커피</div>
+    </div>
+  </div>
+
+  <!-- GRID CASES -->
+  <div class="grid-cases">
+    <div class="grid-case-card">
+      <img src="./images/cinnabon_2_.jpg" alt="시나본" class="grid-case-img">
+      <div class="grid-case-content">
+        <div class="c-tag">Branding · Localization</div>
+        <div class="c-title">시나본 — 글로벌 브랜드 한국 현지화 & 프리미엄 채널 입점</div>
+        <div class="c-desc">미국 Focus Brands 글로벌 베이커리의 한국 런칭. 현지화 STP 수립, 4단계 론칭 로드맵 설계.</div>
+        <div style="display:flex; justify-content:space-between; align-items:center; font-size:11px; color:var(--ink-soft);">
+          <span>현대백화점 3개 지점 · 갤러리아 입점</span>
+          <strong>기여도 70%</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-case-card">
+      <img src="./images/chosim_2_.jpg" alt="초심 스터디카페" class="grid-case-img">
+      <div class="grid-case-content">
+        <div class="c-tag">Growth Hacking · Performance</div>
+        <div class="c-title">초심 스터디카페 — 퍼널 재설계로 효율 극대화</div>
+        <div class="c-desc">예비창업자 모집 퍼널 재설계. CARS 상권분석 시스템 개발, 광고 최적화.</div>
+        <div style="display:flex; justify-content:space-between; align-items:center; font-size:11px; color:var(--ink-soft);">
+          <span>DB 수 540% 증가 · 단가 78% 절감</span>
+          <strong>기여도 88%</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-case-card">
+      <img src="./images/bcd.jpg" alt="북창동순두부" class="grid-case-img">
+      <div class="grid-case-content">
+        <div class="c-tag">Rebranding · Identity</div>
+        <div class="c-title">북창동순두부 — 브랜드 정체성 완전 리뉴얼</div>
+        <div class="c-desc">30년 전통 지역 브랜드 현대화. 포지셔닝 재정의, 아이덴티티 시각화, 마케팅 전략 수립.</div>
+        <div style="display:flex; justify-content:space-between; align-items:center; font-size:11px; color:var(--ink-soft);">
+          <span>콘셉트·BI·전략 통합 기획</span>
+          <strong>기여도 80%</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-case-card">
+      <img src="./images/isensfnb.jpg" alt="아이센스F&B" class="grid-case-img">
+      <div class="grid-case-content">
+        <div class="c-tag">신사업 PM · 팀빌딩</div>
+        <div class="c-title">아이센스F&B 학원 신사업 — 9개월 표류 → 7개월 론칭</div>
+        <div class="c-desc">방향을 잃은 프로젝트를 PM으로 자청. 팀 구성·BM 설계·운영 시스템까지 총괄.</div>
+        <div style="display:flex; justify-content:space-between; align-items:center; font-size:11px; color:var(--ink-soft);">
+          <span>론칭 준비 완료</span>
+          <strong>기여도 85%</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-case-card">
+      <img src="./images/urtowel.png" alt="유어타올" class="grid-case-img">
+      <div class="grid-case-content">
+        <div class="c-tag">Brand Naming · Concept</div>
+        <div class="c-title">유어타올·가이아 어싱 — 신규 브랜드 콘셉트·네이밍</div>
+        <div class="c-desc">기능성 침구·웰니스 브랜드 스크래치. 타깃 세분화, 포지셔닝, 네이밍, BI 설계.</div>
+        <div style="display:flex; justify-content:space-between; align-items:center; font-size:11px; color:var(--ink-soft);">
+          <span>브랜드 정체성 초기 설계</span>
+          <strong>기여도 90%</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEMS -->
+<section class="section" id="problems" style="background:var(--cream)">
+  <div class="s-label">Problem Solving</div>
+  <h2 class="s-title">제가 해결하는 문제</h2>
+  <div class="problems-list">
+    <div class="p-item">
+      <div class="p-num">01</div>
+      <div>
+        <div class="p-q">"브랜드는 있는데 성장이 안 돼요"</div>
+        <div class="p-a">퍼널(유입→전환→재구매) 재설계 + 브랜드 메시지 정렬로 해결합니다. 광고를 더하기 전에 구조부터 바꿉니다.</div>
+      </div>
+      <div class="p-res"><div class="p-metric">↑540%</div><div class="p-ml">DB 수 증가 · 초심</div></div>
+    </div>
+    <div class="p-item">
+      <div class="p-num">02</div>
+      <div>
+        <div class="p-q">"론칭하고 싶은데 어디서부터 해야 할지 모르겠어요"</div>
+        <div class="p-a">시장분석 → 현지화 STP → 4단계 론칭 로드맵 → 실행 문서로 패키징합니다. 전략과 실행을 동시에 제공합니다.</div>
+      </div>
+      <div class="p-res"><div class="p-metric">4곳</div><div class="p-ml">백화점 입점 · 시나본</div></div>
+    </div>
+    <div class="p-item">
+      <div class="p-num">03</div>
+      <div>
+        <div class="p-q">"아이디어는 있는데 실행이 안 돼요"</div>
+        <div class="p-a">조직에 최적화된 실행 문서(캘린더·가이드·체크리스트)와 함께, 팀이 스스로 움직일 수 있는 구조를 만듭니다.</div>
+      </div>
+      <div class="p-res"><div class="p-metric">7mo</div><div class="p-ml">론칭까지 · 아이센스</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ETC -->
+<section class="section etc" id="etc">
+  <div class="s-label">Publications &amp; Lectures</div>
+  <h2 class="s-title">저서·강의</h2>
+  <div class="etc-grid">
+    <div>
+      <div class="etc-lbl">저서</div>
+      <div class="etc-item"><strong>외식프랜차이즈 경영론</strong> 공저 · 교문사 2017</div>
+      <div class="etc-item"><strong>주방관리론</strong> 기획·대필 · 교문사 2018</div>
+      <div class="etc-item"><strong>실전 주방관리론</strong> 기획·대필 · 교문사 2022</div>
+      <div class="etc-item"><strong>카사노바</strong> 카페창업 노하우 · 공저 2013</div>
+      <div class="etc-item"><strong>스토리볼 앱북: 라떼킹 편</strong> 공저 · 2014</div>
+      <div class="etc-item">논문 「외식프랜차이즈 기업의 경영이념에 관한 연구」 KCI 2015</div>
+    </div>
+    <div>
+      <div class="etc-lbl">강의</div>
+      <div class="etc-item"><strong>한양사이버대학교</strong> 외식프랜차이즈 콘셉트 개발론 · 2017–2023 · 만족도 95.7점</div>
+      <div class="etc-item"><strong>한국프랜차이즈산업협회</strong> 프랜차이즈 사업 콘셉트 개발 · 2022</div>
+      <div class="etc-item"><strong>서울신용보증재단</strong> 소상공인 상품기획 · 2018</div>
+      <div class="etc-item"><strong>한국공항공사</strong> 대형 상업시설 MD 기획 · 2017</div>
+      <div class="etc-item"><strong>한살림</strong> 비주얼 머천다이징 · 2017</div>
+      <div class="etc-item">기타 협회·공공기관 강의 다수</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=900&fit=crop" alt="Brand workspace" class="contact-bg">
+  <div class="contact-left">
+    <div class="s-label">Contact</div>
+    <h2 class="ct">오래 살아남는<br>브랜드를 함께<br>만들어봅시다.</h2>
+    <p class="cs">작은 브랜드의 전략가, 박인정입니다.<br>당신의 브랜드를 빛나게 할 수 있다고 믿습니다.</p>
+  </div>
+  <div class="contact-right">
+    <div class="c-rows">
+      <div class="c-row"><span class="icon">✉</span><span class="lbl">이메일</span><span class="val">letyoushine@naver.com</span></div>
+      <div class="c-row"><span class="icon">☎</span><span class="lbl">전화</span><span class="val">010-9175-9589</span></div>
+      <div class="c-row"><span class="icon">◎</span><span class="lbl">인스타그램</span><span class="val">@letyoushine.co</span></div>
+      <div class="c-row"><span class="icon">◈</span><span class="lbl">박사과정</span><span class="val">aSSIST · SDG Management School</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="footer">
+  <span>© 2026 박인정 · Shine Injung Park</span>
+  <span><em>Making your brand Shine</em></span>
+</div>
+
+</body>
+</html>
