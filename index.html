@@ -102,8 +102,8 @@ html[lang=ja] body{font-family:'Noto Serif JP','DM Sans',sans-serif}
 /* CASES */
 .cases{background:var(--warm)}
 .case-card{background:var(--cream);border:.5px solid var(--border);padding:2.5rem;cursor:pointer;border-radius:2px;margin-top:2rem}
-.case-featured{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
-.case-gallery{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;width:100%}
+.case-featured{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}.case-featured-right{display:flex;flex-direction:column}
+.case-gallery{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;width:100%;flex:1}
 .case-gallery img{width:100%;height:220px;object-fit:cover;object-position:center;border-radius:2px;border:.5px solid var(--border);display:block;image-rendering:crisp-edges;image-rendering:-webkit-optimize-contrast}
 .case-gallery.large-first>:first-child{grid-column:1/-1;height:280px}
 .grid-cases{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:2rem}
@@ -162,7 +162,7 @@ html[lang=ja] body{font-family:'Noto Serif JP','DM Sans',sans-serif}
   .hero-right{min-height:60vh}
   .case-featured{grid-template-columns:1fr;gap:2rem}
   .case-gallery{grid-template-columns:1fr}
-  .case-gallery.large-first>:first-child{grid-column:auto}
+  .case-gallery.large-first>:first-child{grid-column:auto}.case-gallery img:last-child:nth-child(odd):not(:first-child){grid-column:auto}
   .about{grid-template-columns:1fr;gap:2rem}
   .about-portrait{width:100%;max-width:300px}
   .strength-grid{grid-template-columns:1fr}
@@ -406,10 +406,10 @@ html[lang=ja] body{font-family:'Noto Serif JP','DM Sans',sans-serif}
     </div>
     <div class="case-featured-right">
       <div class="case-gallery large-first">
-        <img src="./images/Main_casestudy.png" alt="라떼킹 로고">
-        <img src="./images/latteking_garosu.png" alt="1호점 가로수길점">
-        <img src="./images/cups.png" alt="라떼킹 디자인컵">
+        <img src="./images/Main_casestudy.png" alt="라떼킹 메인" style="object-position:center top">
+        <img src="./images/latteking_garosu.png" alt="가로수길점">
         <img src="./images/wasabi_latte.png" alt="와사비라떼">
+        <img src="./images/cups.png" alt="디자인컵">
         <img src="./images/1liter_coffee.png" alt="1리터 커피">
       </div>
       <div style="margin-top:1rem;font-size:11px;color:var(--ink-muted);text-align:center"><span class="lang-ko">라떼킹 로고 · 가로수길 매장 · 디자인컵 · 와사비 라떼 · 1리터 커피</span><span class="lang-en">Latte king Logo  · Garosu-gil Store · Design Cups · Wasabi Latte · 1L Coffee</span><span class="lang-zh">拿铁王标志 · 店铺 · 设计杯 · 芥末拿铁 · 1升咖啡</span><span class="lang-ja">ラテキングのロゴ · 店舗 · デザインカップ · わさびラテ · 1Lコーヒー</span></div>
