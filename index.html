@@ -75,7 +75,7 @@ html[lang=ja] body{font-family:'Noto Serif JP','DM Sans',sans-serif}
 .about{background:var(--accent);color:#fff;padding:5rem 4rem;display:grid;grid-template-columns:280px 1fr;gap:4rem;align-items:center}
 .about-left{display:flex;flex-direction:column;gap:2rem}
 .about-portrait{width:280px;height:340px;background:rgba(255,255,255,.08);border:.5px solid rgba(255,255,255,.15);border-radius:2px;display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0}
-.about-portrait img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+.about-portrait img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;image-rendering:crisp-edges;image-rendering:-webkit-optimize-contrast}
 .about .s-label{color:var(--gold-light)}
 .about .s-label::before{background:var(--gold-light)}
 .about .s-title{color:#fff}
@@ -104,12 +104,12 @@ html[lang=ja] body{font-family:'Noto Serif JP','DM Sans',sans-serif}
 .case-card{background:var(--cream);border:.5px solid var(--border);padding:2.5rem;cursor:pointer;border-radius:2px;margin-top:2rem}
 .case-featured{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
 .case-gallery{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;width:100%}
-.case-gallery img{width:80%;height:160px;object-fit:cover;object-position:center;border-radius:2px;border:.5px solid var(--border);display:block}
-.case-gallery.large-first>:first-child{grid-column:1/-1;height:200px}
+.case-gallery img{width:100%;height:220px;object-fit:cover;object-position:center;border-radius:2px;border:.5px solid var(--border);display:block;image-rendering:crisp-edges;image-rendering:-webkit-optimize-contrast}
+.case-gallery.large-first>:first-child{grid-column:1/-1;height:280px}
 .grid-cases{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:2rem}
 .grid-case-card{background:var(--cream);border:.5px solid var(--border);overflow:hidden;border-radius:2px;transition:transform .2s}
 .grid-case-card:hover{transform:translateY(-3px)}
-.grid-case-img{width:100%;height:180px;object-fit:cover;object-position:center;display:block}
+.grid-case-img{width:100%;height:180px;object-fit:cover;object-position:center;display:block;image-rendering:crisp-edges;image-rendering:-webkit-optimize-contrast}
 .grid-case-content{padding:1.75rem}
 .c-tag{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:.75rem;display:block}
 .c-title{font-family:'Noto Serif KR','Noto Serif SC','Noto Serif JP',serif;font-size:16px;font-weight:400;line-height:1.5;margin-bottom:1rem;color:var(--ink)}
