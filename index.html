@@ -102,8 +102,8 @@ html[lang=ja] body{font-family:'Noto Serif JP','DM Sans',sans-serif}
 /* CASES */
 .cases{background:var(--warm)}
 .case-card{background:var(--cream);border:.5px solid var(--border);padding:2.5rem;cursor:pointer;border-radius:2px;margin-top:2rem}
-.case-featured{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}.case-featured-right{display:flex;flex-direction:column}
-.case-gallery{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;width:100%;flex:1}
+.case-featured{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+.case-gallery{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;width:100%}
 .case-gallery img{width:100%;height:220px;object-fit:cover;object-position:center;border-radius:2px;border:.5px solid var(--border);display:block;image-rendering:crisp-edges;image-rendering:-webkit-optimize-contrast}
 .case-gallery.large-first>:first-child{grid-column:1/-1;height:280px}
 .grid-cases{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:2rem}
@@ -160,9 +160,6 @@ html[lang=ja] body{font-family:'Noto Serif JP','DM Sans',sans-serif}
 @media(max-width:1024px){
   .hero{grid-template-columns:1fr}
   .hero-right{min-height:60vh}
-  .case-featured{grid-template-columns:1fr;gap:2rem}
-  .case-gallery{grid-template-columns:1fr}
-  .case-gallery.large-first>:first-child{grid-column:auto}.case-gallery img:last-child:nth-child(odd):not(:first-child){grid-column:auto}
   .about{grid-template-columns:1fr;gap:2rem}
   .about-portrait{width:100%;max-width:300px}
   .strength-grid{grid-template-columns:1fr}
@@ -363,7 +360,7 @@ html[lang=ja] body{font-family:'Noto Serif JP','DM Sans',sans-serif}
       <ul class="strength-list">
         <li><span class="lang-ko"><strong>버크만 프리뷰-기획/전략 최고점</strong>-아이디어를 구조화 하는 능력이 뛰어납니다.</span><span class="lang-en"><strong>Planning/Strategy Highest Score</strong>-(in Birkman Preview)Excellent ability to structure ideas</span><span class="lang-zh"><strong>规划/战略最高分</strong> — 想法→结构</span><span class="lang-ja"><strong>企画・戦略最高点</strong> — アイデア→構造</span></li>
         <li><span class="lang-ko">일반인 대비 <strong>공감 이해력 2배</strong>-맥락을 파악하고, 다양한 이해관계자들의 숨겨진 니즈를 읽습니다.</span><span class="lang-en"><strong>Twice the empathy and understanding compared to the general public</strong>-Grabs the context and reads the hidden needs of various stakeholders.</span><span class="lang-zh"><strong>与普通大众相比，同理心和理解力是两倍</strong>——能够把握背景，洞察各利益相关者的潜在需求。</span><span class="lang-ja"><strong><strong>一般の人々と比較して2倍の共感力と理解力</strong>-状況を把握し、さまざまな関係者の隠れたニーズを読み取ります。</span></li>
-        <li><span class="lang-ko"><strong>위기 대처 능력 88점/100점 만점</strong>-변화무쌍한 환경에 강합니다.</span><span class="lang-en"><strong>Crisis Management Ability 88/100</strong> - Strong in ever-changing environments.</span><span class="lang-zh"><strong>危机管理能力 88/100</strong> - 在不断变化的环境中表现出色。</span><span class="lang-ja"><strong>危機管理能力 88/100点</strong> - 変化の激しい環境において優れた能力を発揮します。</strong>-状況を把握し、さまざまな関係者の隠れたニーズを読み取ります。</span></li>
+        <li><span class="lang-ko"><strong>위기 대처 능력 88점/100점 만점</strong>-변화무쌍한 환경에 강합니다.</span><span class="lang-en"><strong>Crisis Management Ability 88/100</strong> - Strong in ever-changing environments.</span><span class="lang-zh"><strong>危机管理能力 88/100</strong> - 在不断变化的环境中表现出色。</span><span class="lang-ja"><strong>危機管理能力 88/100点</strong> - 変化の激しい環境において優れた能力を発揮します。</strong></span></li>
       </ul>
     </div>
   </div>
@@ -375,14 +372,14 @@ html[lang=ja] body{font-family:'Noto Serif JP','DM Sans',sans-serif}
   <h2 class="s-title"><span class="lang-ko">대표 케이스 스터디</span><span class="lang-en">Main Case Studies</span><span class="lang-zh">代表性案例研究</span><span class="lang-ja">代表ケーススタディ</span></h2>
   <p class="s-sub"><span class="lang-ko">전략→실행→성과까지, 제가 어디를 책임지는지 보여줄 수 있는 대표 프로젝트를 소개합니다.</span><span class="lang-en">From strategy to execution to results, this is a major project that demonstrates where I am responsible.</span><span class="lang-zh">从战略到执行再到结果，这是一个重大项目，充分展现了我的职责范围。</span><span class="lang-ja">戦略→実行→成果まで、私がどこを担当するかを示すことができる主要プロジェクトを紹介します。</span></p>
 
-  <div class="case-card case-featured">
-    <div class="case-featured-left">
+  <div class="case-card case-featured" style="display:grid!important;grid-template-columns:1fr 1fr;gap:3rem;align-items:start">
+    <div class="case-featured-left" style="min-width:0;overflow:hidden">
       <div class="c-tag"><span class="lang-ko">Branding · Contents · 15년+ 파트너십</span><span class="lang-en">Branding · Contents · 15+ Year Partnership</span><span class="lang-zh">品牌·内容·15年以上合作</span><span class="lang-ja">ブランディング·コンテンツ·15年以上のパートナーシップ</span></div>
       <div class="c-title"><span class="lang-ko">라떼킹 — 스타트업 1개 매장 → 전국 30개 프랜차이즈 확장의 모든 과정</span><span class="lang-en">Latte King — From 1 Startup Store to 30 National Franchises</span><span class="lang-zh">拿铁王 — 从1家创业店到全国30家特许经营店</span><span class="lang-ja">ラッテキング — 1店舗から全国30フランチャイズへの全過程</span></div>
       <div style="background:rgba(26,26,24,.03);padding:1.5rem;border-radius:2px;margin-bottom:1.5rem">
         <p style="font-size:13px;color:var(--ink);line-height:1.8;margin-bottom:.75rem"><strong><span class="lang-ko">브랜드 아이덴티티 설계:</span><span class="lang-en">Building Brand Identity:</span><span class="lang-zh">品牌身份设计：</span><span class="lang-ja">ブランドアイデンティティ設計：</span></strong> <span class="lang-ko">브랜드 정체성 설계: 가로수길 1개 매장의 스타트업에서 '라떼 전문점'이라는 명확한 포지셔닝 수립. '소통, 개방, 재미, 젊음, 선함'을 핵심 키워드로 설정.</span><span class="lang-en">Established a clear positioning as a "Latte Specialty Shop" for a startup with a single store in Garosu-gil. Set "Communication, Openness, Fun, Youth, and Kindness" as core values.</span><span class="lang-zh">打造品牌形象：为这家在林荫道仅有一家门店的初创公司，明确定位为“拿铁专卖店”。将“沟通、开放、乐趣、青春、友善”作为核心价值观。</span><span class="lang-ja">ブランドアイデンティティの構築：カロスキルに1店舗を構えるスタートアップ企業として、「ラテ専門店」としての明確なポジショニングを確立。「コミュニケーション、オープンさ、楽しさ、若々しさ、優しさ」をコアバリューとして設定。</span></p>
-        <p style="font-size:13px;color:var(--ink);line-height:1.8"><strong><span class="lang-ko">시그니처 메뉴 개발:</span><span class="lang-en">Signature Menu Development:</span><span class="lang-zh">招牌菜单开发：</span><span class="lang-ja">シグネチャメニュー開発：</span></strong> <span class="lang-ko">'메뉴는 브랜드 정체성을 구현하는 전략적 도구'라는 접근으로, 와사비라떼(국내 최초)·진짜 밀크티(전국 판매량 3위)·소금라떼·소주라떼·1리터 커피 등 개발.</span><span class="lang-en">I approached the menu as "a strategic tool for realizing brand identity," developed items such as the Wasabi Latte (the first in Korea), Real Milk Tea (ranked 3rd in nationwide sales), Salt Latte, Soju Latte, and 1-Liter Coffee.</span><span class="lang-zh">我将菜单视为“实现品牌形象的战略工具”，开发了芥末拿铁（韩国首款）、正宗奶茶（全国销量排名第三）、咸味拿铁、烧酒拿铁和 1 升装咖啡等产品。</span><span class="lang-ja">シグネチャーメニュー開発：私はメニューを「ブランドアイデンティティを実現するための戦略的ツール」と捉え、わさびラテ（韓国初）、リアルミルクティー（全国売上ランキング3位）、ソルトラテ、焼酎ラテ、1リットルコーヒーなどの商品を開発しました。</span></p>      </div>
-        <p style="font-size:13px;color:var(--ink);line-height:1.8"><strong><span class="lang-ko">통합 마케팅 커뮤니케이션(IMC):</span><span class="lang-en">Integrated Marketing Communication(IMC):</span><span class="lang-zh">整合营销传播：</span><span class="lang-ja">統合マーケティングコミュニケーション：</span></strong> <span class="lang-ko">홈페이지·SNS·브랜드 콜라보, 출판물 기획 · 저작(전자책·실무서·다음 연재 18회).</span><span class="lang-en">Website, SNS, brand collaborations, publication planning and writing (e-books, practical guide book, brand stories - 18-part series on Daum.net).</span><span class="lang-zh">网站、社交媒体、品牌合作、出版策划、写作（电子书、实用指南书、Daum.net 18 部分系列）</span><span class="lang-ja">ウェブサイト、SNS、ブランドコラボレーション、出版企画および執筆（電子書籍、実用ガイド、ブランドストーリー - Daum.netに掲載された18回シリーズ）。</span></p>      </div>
+        <p style="font-size:13px;color:var(--ink);line-height:1.8"><strong><span class="lang-ko">시그니처 메뉴 개발:</span><span class="lang-en">Signature Menu Development:</span><span class="lang-zh">招牌菜单开发：</span><span class="lang-ja">シグネチャメニュー開発：</span></strong> <span class="lang-ko">'메뉴는 브랜드 정체성을 구현하는 전략적 도구'라는 접근으로, 와사비라떼(국내 최초)·진짜 밀크티(전국 판매량 3위)·소금라떼·소주라떼·1리터 커피 등 개발.</span><span class="lang-en">I approached the menu as "a strategic tool for realizing brand identity," developed items such as the Wasabi Latte (the first in Korea), Real Milk Tea (ranked 3rd in nationwide sales), Salt Latte, Soju Latte, and 1-Liter Coffee.</span><span class="lang-zh">我将菜单视为“实现品牌形象的战略工具”，开发了芥末拿铁（韩国首款）、正宗奶茶（全国销量排名第三）、咸味拿铁、烧酒拿铁和 1 升装咖啡等产品。</span><span class="lang-ja">シグネチャーメニュー開発：私はメニューを「ブランドアイデンティティを実現するための戦略的ツール」と捉え、わさびラテ（韓国初）、リアルミルクティー（全国売上ランキング3位）、ソルトラテ、焼酎ラテ、1リットルコーヒーなどの商品を開発しました。</span></p>
+        <p style="font-size:13px;color:var(--ink);line-height:1.8"><strong><span class="lang-ko">통합 마케팅 커뮤니케이션(IMC):</span><span class="lang-en">Integrated Marketing Communication(IMC):</span><span class="lang-zh">整合营销传播：</span><span class="lang-ja">統合マーケティングコミュニケーション：</span></strong> <span class="lang-ko">홈페이지·SNS·브랜드 콜라보, 출판물 기획 · 저작(전자책·실무서·다음 연재 18회).</span><span class="lang-en">Website, SNS, brand collaborations, publication planning and writing (e-books, practical guide book, brand stories - 18-part series on Daum.net).</span><span class="lang-zh">网站、社交媒体、品牌合作、出版策划、写作（电子书、实用指南书、Daum.net 18 部分系列）</span><span class="lang-ja">ウェブサイト、SNS、ブランドコラボレーション、出版企画および執筆（電子書籍、実用ガイド、ブランドストーリー - Daum.netに掲載された18回シリーズ）。</span></p></div>
         <div style="margin-bottom:1.5rem">
         <strong style="color:var(--ink);font-size:13px;display:block;margin-bottom:.75rem"><span class="lang-ko">성과</span><span class="lang-en">Results</span><span class="lang-zh">成果</span><span class="lang-ja">成果</span></strong>
         <ul style="margin-left:1rem;font-size:12px;color:var(--ink-soft);list-style:none;padding:0">
@@ -404,12 +401,12 @@ html[lang=ja] body{font-family:'Noto Serif JP','DM Sans',sans-serif}
         </div>
       </div>
     </div>
-    <div class="case-featured-right">
+    <div class="case-featured-right" style="min-width:0;overflow:hidden">
       <div class="case-gallery large-first">
-        <img src="./images/Main_casestudy.png" alt="라떼킹 메인" style="object-position:center top">
-        <img src="./images/latteking_garosu.png" alt="가로수길점">
+        <img src="./images/Main_casestudy.png" alt="라떼킹 로고">
+        <img src="./images/latteking_garosu.png" alt="1호점 가로수길점">
+        <img src="./images/cups.png" alt="라떼킹 디자인컵">
         <img src="./images/wasabi_latte.png" alt="와사비라떼">
-        <img src="./images/cups.png" alt="디자인컵">
         <img src="./images/1liter_coffee.png" alt="1리터 커피">
       </div>
       <div style="margin-top:1rem;font-size:11px;color:var(--ink-muted);text-align:center"><span class="lang-ko">라떼킹 로고 · 가로수길 매장 · 디자인컵 · 와사비 라떼 · 1리터 커피</span><span class="lang-en">Latte king Logo  · Garosu-gil Store · Design Cups · Wasabi Latte · 1L Coffee</span><span class="lang-zh">拿铁王标志 · 店铺 · 设计杯 · 芥末拿铁 · 1升咖啡</span><span class="lang-ja">ラテキングのロゴ · 店舗 · デザインカップ · わさびラテ · 1Lコーヒー</span></div>
@@ -632,7 +629,7 @@ html[lang=ja] body{font-family:'Noto Serif JP','DM Sans',sans-serif}
       </div>
 
       <div class="etc-item">
-        <span class="lang-ko">논문 「외식프랜차이즈 기업의 경영이념에 관한 연구」, 외식경영연구, 2015</span>
+        <span class="lang-ko">논문 <strong>「외식프랜차이즈 기업의 경영이념에 관한 연구」</strong>, 외식경영연구, 2015</span>
         <span class="lang-en">Paper — "A Study on the Management Philosophy of Food Service Franchise Companies –Focusing on the Comparison Between South Korea, USA and Japan" Journal of Foodservice Management, 2015</span>
         <span class="lang-zh">论文 —《餐饮特许经营公司管理理念研究——以韩​​国、美国和日本的比较为例》，《餐饮服务管理杂志》，2015年</span>
         <span class="lang-ja">論文「食品サービスフランチャイズ企業の経営理念に関する研究 ―韓国、米国、日本の比較に焦点を当てて―」食品サービス経営ジャーナル、2015年</span>
