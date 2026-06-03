@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -42,6 +43,19 @@ html[lang=ja] body{font-family:'Noto Serif JP','DM Sans',sans-serif}
 .lang-selector{display:flex;gap:.6rem;align-items:center;margin-left:auto}
 .lang-btn{background:transparent;border:.5px solid var(--border);color:var(--ink-soft);padding:6px 12px;font-size:10px;cursor:pointer;border-radius:2px;transition:all .2s;letter-spacing:.05em;font-family:'DM Sans',sans-serif}
 .lang-btn:hover,.lang-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+/* NAV — 모바일 2행 레이아웃 */
+@media(max-width:768px){
+  .nav{flex-wrap:wrap;height:auto;padding:0;flex-direction:column;align-items:stretch}
+  .nav-top-row{display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;height:48px;width:100%}
+  .nav-bottom-row{display:flex;align-items:center;justify-content:center;padding:6px 1.5rem;border-top:.5px solid var(--border);width:100%;background:rgba(250,248,243,.96)}
+}
+@media(min-width:769px){
+  .nav{display:flex;align-items:center}
+  .nav-top-row{display:contents}
+  .nav-bottom-row{display:contents}
+  .nav-links{order:2}
+  .lang-selector{order:3;margin-left:auto}
+}
 /* HERO */
 .hero{min-height:90vh;display:grid;grid-template-columns:1fr 1fr}
 .hero-left{padding:6rem 4rem;display:flex;flex-direction:column;justify-content:center}
@@ -170,13 +184,10 @@ html[lang=ja] body{font-family:'Noto Serif JP','DM Sans',sans-serif}
   .etc-grid{grid-template-columns:1fr}
 }
 @media(max-width:768px){
-  .case-featured{display:grid!important;grid-template-columns:1fr!important;gap:2rem}
-  .case-gallery{grid-template-columns:1fr!important}
-  .case-gallery.large-first>:first-child{grid-column:auto!important}
-  .nav{padding:0 1.5rem;height:52px}
   .nav-logo{font-size:14px}
-  .nav-links{gap:1rem}
+  .nav-links{gap:1rem;margin-left:0}
   .nav-links a{font-size:9px}
+  .lang-selector{margin-left:0}
   .lang-btn{padding:5px 9px;font-size:9px}
   .section{padding:3rem 1.5rem}
   .hero-left{padding:4rem 1.5rem}
@@ -194,10 +205,11 @@ html[lang=ja] body{font-family:'Noto Serif JP','DM Sans',sans-serif}
   .footer{padding:1rem 1.5rem;flex-direction:column;gap:.5rem}
 }
 @media(max-width:480px){
-  .nav{padding:0 1rem}
+  .nav-top-row{padding:0 1rem}
+  .nav-bottom-row{padding:5px 1rem}
   .nav-logo{font-size:12px}
-  .nav-links{gap:.6rem}
-  .lang-btn{padding:4px 8px;font-size:8px}
+  .nav-links{gap:.5rem}
+  .lang-btn{padding:4px 7px;font-size:8px}
   .section{padding:2rem 1rem}
   .hero-left{padding:3rem 1rem}
 }
@@ -206,19 +218,23 @@ html[lang=ja] body{font-family:'Noto Serif JP','DM Sans',sans-serif}
 <body>
 
 <nav class="nav">
-  <div class="nav-logo">박인정 朴仁貞<em>Shine</em></div>
-  <ul class="nav-links">
-    <li><a href="#about" id="nav-about">소개</a></li>
-    <li><a href="#strengths" id="nav-strengths">강점</a></li>
-    <li><a href="#cases" id="nav-cases">케이스</a></li>
-    <li><a href="#problems" id="nav-problems">문제 해결</a></li>
-    <li><a href="#contact" id="nav-contact">연락</a></li>
-  </ul>
-  <div class="lang-selector">
-    <button class="lang-btn active" data-lang="ko">한국어</button>
-    <button class="lang-btn" data-lang="en">English</button>
-    <button class="lang-btn" data-lang="zh">中文</button>
-    <button class="lang-btn" data-lang="ja">日本語</button>
+  <div class="nav-top-row">
+    <div class="nav-logo">박인정 朴仁貞<em>Shine</em></div>
+    <div class="lang-selector">
+      <button class="lang-btn active" data-lang="ko">한국어</button>
+      <button class="lang-btn" data-lang="en">English</button>
+      <button class="lang-btn" data-lang="zh">中文</button>
+      <button class="lang-btn" data-lang="ja">日本語</button>
+    </div>
+  </div>
+  <div class="nav-bottom-row">
+    <ul class="nav-links">
+      <li><a href="#about" id="nav-about">소개</a></li>
+      <li><a href="#strengths" id="nav-strengths">강점</a></li>
+      <li><a href="#cases" id="nav-cases">케이스</a></li>
+      <li><a href="#problems" id="nav-problems">문제 해결</a></li>
+      <li><a href="#contact" id="nav-contact">연락</a></li>
+    </ul>
   </div>
 </nav>
 
@@ -363,7 +379,7 @@ html[lang=ja] body{font-family:'Noto Serif JP','DM Sans',sans-serif}
       <ul class="strength-list">
         <li><span class="lang-ko"><strong>버크만 프리뷰-기획/전략 최고점</strong>-아이디어를 구조화 하는 능력이 뛰어납니다.</span><span class="lang-en"><strong>Planning/Strategy Highest Score</strong>-(in Birkman Preview)Excellent ability to structure ideas</span><span class="lang-zh"><strong>规划/战略最高分</strong> — 想法→结构</span><span class="lang-ja"><strong>企画・戦略最高点</strong> — アイデア→構造</span></li>
         <li><span class="lang-ko">일반인 대비 <strong>공감 이해력 2배</strong>-맥락을 파악하고, 다양한 이해관계자들의 숨겨진 니즈를 읽습니다.</span><span class="lang-en"><strong>Twice the empathy and understanding compared to the general public</strong>-Grabs the context and reads the hidden needs of various stakeholders.</span><span class="lang-zh"><strong>与普通大众相比，同理心和理解力是两倍</strong>——能够把握背景，洞察各利益相关者的潜在需求。</span><span class="lang-ja"><strong><strong>一般の人々と比較して2倍の共感力と理解力</strong>-状況を把握し、さまざまな関係者の隠れたニーズを読み取ります。</span></li>
-        <li><span class="lang-ko"><strong>위기 대처 능력 88점/100점 만점</strong>-변화무쌍한 환경에 강합니다.</span><span class="lang-en"><strong>Crisis Management Ability 88/100</strong> - Strong in ever-changing environments.</span><span class="lang-zh"><strong>危机管理能力 88/100</strong> - 在不断变化的环境中表现出色。</span><span class="lang-ja"><strong>危機管理能力 88/100点</strong> - 変化の激しい環境において優れた能力を発揮します。</strong></span></li>
+        <li><span class="lang-ko"><strong>위기 대처 능력 88점/100점 만점</strong>-변화무쌍한 환경에 강합니다.</span><span class="lang-en"><strong>Crisis Management Ability 88/100</strong> - Strong in ever-changing environments.</span><span class="lang-zh"><strong>危机管理能力 88/100</strong> - 在不断变化的环境中表现出色。</span><span class="lang-ja"><strong>危機管理能力 88/100点</strong> - 変化の激しい環境において優れた能力を発揮します。</strong>-状況を把握し、さまざまな関係者の隠れたニーズを読み取ります。</span></li>
       </ul>
     </div>
   </div>
@@ -381,8 +397,8 @@ html[lang=ja] body{font-family:'Noto Serif JP','DM Sans',sans-serif}
       <div class="c-title"><span class="lang-ko">라떼킹 — 스타트업 1개 매장 → 전국 30개 프랜차이즈 확장의 모든 과정</span><span class="lang-en">Latte King — From 1 Startup Store to 30 National Franchises</span><span class="lang-zh">拿铁王 — 从1家创业店到全国30家特许经营店</span><span class="lang-ja">ラッテキング — 1店舗から全国30フランチャイズへの全過程</span></div>
       <div style="background:rgba(26,26,24,.03);padding:1.5rem;border-radius:2px;margin-bottom:1.5rem">
         <p style="font-size:13px;color:var(--ink);line-height:1.8;margin-bottom:.75rem"><strong><span class="lang-ko">브랜드 아이덴티티 설계:</span><span class="lang-en">Building Brand Identity:</span><span class="lang-zh">品牌身份设计：</span><span class="lang-ja">ブランドアイデンティティ設計：</span></strong> <span class="lang-ko">브랜드 정체성 설계: 가로수길 1개 매장의 스타트업에서 '라떼 전문점'이라는 명확한 포지셔닝 수립. '소통, 개방, 재미, 젊음, 선함'을 핵심 키워드로 설정.</span><span class="lang-en">Established a clear positioning as a "Latte Specialty Shop" for a startup with a single store in Garosu-gil. Set "Communication, Openness, Fun, Youth, and Kindness" as core values.</span><span class="lang-zh">打造品牌形象：为这家在林荫道仅有一家门店的初创公司，明确定位为“拿铁专卖店”。将“沟通、开放、乐趣、青春、友善”作为核心价值观。</span><span class="lang-ja">ブランドアイデンティティの構築：カロスキルに1店舗を構えるスタートアップ企業として、「ラテ専門店」としての明確なポジショニングを確立。「コミュニケーション、オープンさ、楽しさ、若々しさ、優しさ」をコアバリューとして設定。</span></p>
-        <p style="font-size:13px;color:var(--ink);line-height:1.8"><strong><span class="lang-ko">시그니처 메뉴 개발:</span><span class="lang-en">Signature Menu Development:</span><span class="lang-zh">招牌菜单开发：</span><span class="lang-ja">シグネチャメニュー開発：</span></strong> <span class="lang-ko">'메뉴는 브랜드 정체성을 구현하는 전략적 도구'라는 접근으로, 와사비라떼(국내 최초)·진짜 밀크티(전국 판매량 3위)·소금라떼·소주라떼·1리터 커피 등 개발.</span><span class="lang-en">I approached the menu as "a strategic tool for realizing brand identity," developed items such as the Wasabi Latte (the first in Korea), Real Milk Tea (ranked 3rd in nationwide sales), Salt Latte, Soju Latte, and 1-Liter Coffee.</span><span class="lang-zh">我将菜单视为“实现品牌形象的战略工具”，开发了芥末拿铁（韩国首款）、正宗奶茶（全国销量排名第三）、咸味拿铁、烧酒拿铁和 1 升装咖啡等产品。</span><span class="lang-ja">シグネチャーメニュー開発：私はメニューを「ブランドアイデンティティを実現するための戦略的ツール」と捉え、わさびラテ（韓国初）、リアルミルクティー（全国売上ランキング3位）、ソルトラテ、焼酎ラテ、1リットルコーヒーなどの商品を開発しました。</span></p>
-        <p style="font-size:13px;color:var(--ink);line-height:1.8"><strong><span class="lang-ko">통합 마케팅 커뮤니케이션(IMC):</span><span class="lang-en">Integrated Marketing Communication(IMC):</span><span class="lang-zh">整合营销传播：</span><span class="lang-ja">統合マーケティングコミュニケーション：</span></strong> <span class="lang-ko">홈페이지·SNS·브랜드 콜라보, 출판물 기획 · 저작(전자책·실무서·다음 연재 18회).</span><span class="lang-en">Website, SNS, brand collaborations, publication planning and writing (e-books, practical guide book, brand stories - 18-part series on Daum.net).</span><span class="lang-zh">网站、社交媒体、品牌合作、出版策划、写作（电子书、实用指南书、Daum.net 18 部分系列）</span><span class="lang-ja">ウェブサイト、SNS、ブランドコラボレーション、出版企画および執筆（電子書籍、実用ガイド、ブランドストーリー - Daum.netに掲載された18回シリーズ）。</span></p></div>
+        <p style="font-size:13px;color:var(--ink);line-height:1.8"><strong><span class="lang-ko">시그니처 메뉴 개발:</span><span class="lang-en">Signature Menu Development:</span><span class="lang-zh">招牌菜单开发：</span><span class="lang-ja">シグネチャメニュー開発：</span></strong> <span class="lang-ko">'메뉴는 브랜드 정체성을 구현하는 전략적 도구'라는 접근으로, 와사비라떼(국내 최초)·진짜 밀크티(전국 판매량 3위)·소금라떼·소주라떼·1리터 커피 등 개발.</span><span class="lang-en">I approached the menu as "a strategic tool for realizing brand identity," developed items such as the Wasabi Latte (the first in Korea), Real Milk Tea (ranked 3rd in nationwide sales), Salt Latte, Soju Latte, and 1-Liter Coffee.</span><span class="lang-zh">我将菜单视为“实现品牌形象的战略工具”，开发了芥末拿铁（韩国首款）、正宗奶茶（全国销量排名第三）、咸味拿铁、烧酒拿铁和 1 升装咖啡等产品。</span><span class="lang-ja">シグネチャーメニュー開発：私はメニューを「ブランドアイデンティティを実現するための戦略的ツール」と捉え、わさびラテ（韓国初）、リアルミルクティー（全国売上ランキング3位）、ソルトラテ、焼酎ラテ、1リットルコーヒーなどの商品を開発しました。</span></p>      </div>
+        <p style="font-size:13px;color:var(--ink);line-height:1.8"><strong><span class="lang-ko">통합 마케팅 커뮤니케이션(IMC):</span><span class="lang-en">Integrated Marketing Communication(IMC):</span><span class="lang-zh">整合营销传播：</span><span class="lang-ja">統合マーケティングコミュニケーション：</span></strong> <span class="lang-ko">홈페이지·SNS·브랜드 콜라보, 출판물 기획 · 저작(전자책·실무서·다음 연재 18회).</span><span class="lang-en">Website, SNS, brand collaborations, publication planning and writing (e-books, practical guide book, brand stories - 18-part series on Daum.net).</span><span class="lang-zh">网站、社交媒体、品牌合作、出版策划、写作（电子书、实用指南书、Daum.net 18 部分系列）</span><span class="lang-ja">ウェブサイト、SNS、ブランドコラボレーション、出版企画および執筆（電子書籍、実用ガイド、ブランドストーリー - Daum.netに掲載された18回シリーズ）。</span></p>
         <div style="margin-bottom:1.5rem">
         <strong style="color:var(--ink);font-size:13px;display:block;margin-bottom:.75rem"><span class="lang-ko">성과</span><span class="lang-en">Results</span><span class="lang-zh">成果</span><span class="lang-ja">成果</span></strong>
         <ul style="margin-left:1rem;font-size:12px;color:var(--ink-soft);list-style:none;padding:0">
@@ -632,7 +648,7 @@ html[lang=ja] body{font-family:'Noto Serif JP','DM Sans',sans-serif}
       </div>
 
       <div class="etc-item">
-        <span class="lang-ko">논문 <strong>「외식프랜차이즈 기업의 경영이념에 관한 연구」</strong>, 외식경영연구, 2015</span>
+        <span class="lang-ko">논문 「외식프랜차이즈 기업의 경영이념에 관한 연구」, 외식경영연구, 2015</span>
         <span class="lang-en">Paper — "A Study on the Management Philosophy of Food Service Franchise Companies –Focusing on the Comparison Between South Korea, USA and Japan" Journal of Foodservice Management, 2015</span>
         <span class="lang-zh">论文 —《餐饮特许经营公司管理理念研究——以韩​​国、美国和日本的比较为例》，《餐饮服务管理杂志》，2015年</span>
         <span class="lang-ja">論文「食品サービスフランチャイズ企業の経営理念に関する研究 ―韓国、米国、日本の比較に焦点を当てて―」食品サービス経営ジャーナル、2015年</span>
