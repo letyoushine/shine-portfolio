@@ -33,28 +33,28 @@ html{scroll-behavior:smooth}
 body{font-family:'DM Sans','Noto Serif KR',sans-serif;background:var(--cream);color:var(--ink)}
 html[lang=zh] body{font-family:'Noto Serif SC','DM Sans',sans-serif}
 html[lang=ja] body{font-family:'Noto Serif JP','DM Sans',sans-serif}
-/* NAV */
-.nav{position:sticky;top:0;z-index:100;background:rgba(250,248,243,.96);border-bottom:.5px solid var(--border);backdrop-filter:blur(8px);padding:0 3rem;display:flex;align-items:center;justify-content:space-between;height:56px}
-.nav-logo{font-family:'DM Serif Display',serif;font-size:15px;letter-spacing:.02em}
+/* NAV — Mobile First */
+.nav{position:sticky;top:0;z-index:100;background:rgba(250,248,243,.96);border-bottom:.5px solid var(--border);backdrop-filter:blur(8px);display:flex;flex-direction:column;align-items:stretch}
+.nav-top-row{display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;height:48px;width:100%}
+.nav-bottom-row{display:flex;align-items:center;justify-content:center;padding:6px 1.5rem;border-top:.5px solid var(--border);width:100%}
+.nav-logo{font-family:'DM Serif Display',serif;font-size:14px;letter-spacing:.02em}
 .nav-logo em{font-style:italic;color:var(--gold)}
-.nav-links{display:flex;gap:2rem;list-style:none;margin-left:3rem}
-.nav-links a{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);text-decoration:none;cursor:pointer;transition:color .2s}
+.nav-links{display:flex;gap:1rem;list-style:none}
+.nav-links a{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);text-decoration:none;cursor:pointer;transition:color .2s}
 .nav-links a:hover{color:var(--ink)}
-.lang-selector{display:flex;gap:.6rem;align-items:center;margin-left:auto}
-.lang-btn{background:transparent;border:.5px solid var(--border);color:var(--ink-soft);padding:6px 12px;font-size:10px;cursor:pointer;border-radius:2px;transition:all .2s;letter-spacing:.05em;font-family:'DM Sans',sans-serif}
+.lang-selector{display:flex;gap:.5rem;align-items:center}
+.lang-btn{background:transparent;border:.5px solid var(--border);color:var(--ink-soft);padding:5px 9px;font-size:9px;cursor:pointer;border-radius:2px;transition:all .2s;letter-spacing:.05em;font-family:'DM Sans',sans-serif}
 .lang-btn:hover,.lang-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
-/* NAV — 모바일 2행 레이아웃 */
-@media(max-width:768px){
-  .nav{flex-wrap:wrap;height:auto;padding:0;flex-direction:column;align-items:stretch}
-  .nav-top-row{display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;height:48px;width:100%}
-  .nav-bottom-row{display:flex;align-items:center;justify-content:center;padding:6px 1.5rem;border-top:.5px solid var(--border);width:100%;background:rgba(250,248,243,.96)}
-}
+/* NAV — PC (769px+) */
 @media(min-width:769px){
-  .nav{display:flex;align-items:center}
+  .nav{flex-direction:row;align-items:center;height:56px;padding:0 3rem}
   .nav-top-row{display:contents}
   .nav-bottom-row{display:contents}
-  .nav-links{order:2}
-  .lang-selector{order:3;margin-left:auto}
+  .nav-logo{font-size:15px;order:1}
+  .nav-links{gap:2rem;margin-left:3rem;order:2}
+  .nav-links a{font-size:11px}
+  .lang-selector{gap:.6rem;margin-left:auto;order:3}
+  .lang-btn{padding:6px 12px;font-size:10px}
 }
 /* HERO */
 .hero{min-height:90vh;display:grid;grid-template-columns:1fr 1fr}
@@ -184,11 +184,6 @@ html[lang=ja] body{font-family:'Noto Serif JP','DM Sans',sans-serif}
   .etc-grid{grid-template-columns:1fr}
 }
 @media(max-width:768px){
-  .nav-logo{font-size:14px}
-  .nav-links{gap:1rem;margin-left:0}
-  .nav-links a{font-size:9px}
-  .lang-selector{margin-left:0}
-  .lang-btn{padding:5px 9px;font-size:9px}
   .section{padding:3rem 1.5rem}
   .hero-left{padding:4rem 1.5rem}
   .hero-tagline{font-size:13px;max-width:100%}
@@ -207,9 +202,8 @@ html[lang=ja] body{font-family:'Noto Serif JP','DM Sans',sans-serif}
 }
 @media(max-width:480px){
   .nav-top-row{padding:0 1rem}
-  .nav-bottom-row{padding:5px 1rem}
-  .nav-logo{font-size:12px}
-  .nav-links{gap:.5rem}
+  .nav-bottom-row{padding:5px 1rem;gap:.4rem}
+  .nav-links{gap:.4rem}
   .lang-btn{padding:4px 7px;font-size:8px}
   .section{padding:2rem 1rem}
   .hero-left{padding:3rem 1rem}
