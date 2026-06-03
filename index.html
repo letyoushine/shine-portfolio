@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -32,38 +33,29 @@ html{scroll-behavior:smooth}
 body{font-family:'DM Sans','Noto Serif KR',sans-serif;background:var(--cream);color:var(--ink)}
 html[lang=zh] body{font-family:'Noto Serif SC','DM Sans',sans-serif}
 html[lang=ja] body{font-family:'Noto Serif JP','DM Sans',sans-serif}
-
-/* NAV */
-.nav{position:sticky;top:0;z-index:100;background:rgba(250,248,243,.96);border-bottom:.5px solid var(--border);backdrop-filter:blur(8px)}
-.nav-row1{display:flex;align-items:center;height:56px;padding:0 3rem}
-.nav-row2{display:none}
-.nav-logo{font-family:'DM Serif Display',serif;font-size:15px;letter-spacing:.02em;white-space:nowrap;flex-shrink:0}
+/* NAV — Mobile First */
+.nav{position:sticky;top:0;z-index:100;background:rgba(250,248,243,.96);border-bottom:.5px solid var(--border);backdrop-filter:blur(8px);display:flex;flex-direction:column;align-items:stretch}
+.nav-top-row{display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;height:48px;width:100%}
+.nav-bottom-row{display:flex;align-items:center;justify-content:center;padding:6px 1.5rem;border-top:.5px solid var(--border);width:100%}
+.nav-logo{font-family:'DM Serif Display',serif;font-size:14px;letter-spacing:.02em}
 .nav-logo em{font-style:italic;color:var(--gold)}
-.nav-links{display:flex;gap:2rem;list-style:none;margin-left:3rem;flex-shrink:0}
-.nav-links a{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);text-decoration:none;cursor:pointer;transition:color .2s;white-space:nowrap}
+.nav-links{display:flex;gap:1rem;list-style:none}
+.nav-links a{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);text-decoration:none;cursor:pointer;transition:color .2s}
 .nav-links a:hover{color:var(--ink)}
-.lang-selector{display:flex;gap:.6rem;align-items:center;margin-left:auto;flex-shrink:0}
-.lang-btn{background:transparent;border:.5px solid var(--border);color:var(--ink-soft);padding:6px 12px;font-size:10px;cursor:pointer;border-radius:2px;transition:all .2s;letter-spacing:.05em;font-family:'DM Sans',sans-serif;white-space:nowrap}
+.lang-selector{display:flex;gap:.5rem;align-items:center}
+.lang-btn{background:transparent;border:.5px solid var(--border);color:var(--ink-soft);padding:5px 9px;font-size:9px;cursor:pointer;border-radius:2px;transition:all .2s;letter-spacing:.05em;font-family:'DM Sans',sans-serif}
 .lang-btn:hover,.lang-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
-@media(max-width:768px){
-  .nav-row1{height:46px;padding:0 1.25rem}
-  .nav-row1 .nav-links{display:none}
-  .nav-row2{display:flex;align-items:center;justify-content:center;padding:6px 1rem;border-top:.5px solid var(--border);gap:.75rem}
-  .nav-row2 .nav-links{display:flex;gap:.75rem;list-style:none;margin-left:0}
-  .nav-row2 .nav-links a{font-size:9px;letter-spacing:.07em}
-  .nav-logo{font-size:13px}
-  .lang-selector{gap:.4rem}
-  .lang-btn{padding:5px 8px;font-size:8.5px}
+/* NAV — PC (769px+) */
+@media(min-width:769px){
+  .nav{flex-direction:row;align-items:center;height:56px;padding:0 3rem}
+  .nav-top-row{display:contents}
+  .nav-bottom-row{display:contents}
+  .nav-logo{font-size:15px;order:1}
+  .nav-links{gap:2rem;margin-left:3rem;order:2}
+  .nav-links a{font-size:11px}
+  .lang-selector{gap:.6rem;margin-left:auto;order:3}
+  .lang-btn{padding:6px 12px;font-size:10px}
 }
-@media(max-width:480px){
-  .nav-row1{padding:0 1rem}
-  .nav-logo{font-size:12px}
-  .lang-btn{padding:4px 6px;font-size:8px}
-  .nav-row2{padding:5px .75rem;gap:.5rem}
-  .nav-row2 .nav-links{gap:.5rem}
-  .nav-row2 .nav-links a{font-size:8.5px}
-}
-
 /* HERO */
 .hero{min-height:90vh;display:grid;grid-template-columns:1fr 1fr}
 .hero-left{padding:6rem 4rem;display:flex;flex-direction:column;justify-content:center}
@@ -175,13 +167,10 @@ html[lang=ja] body{font-family:'Noto Serif JP','DM Sans',sans-serif}
 .footer{background:var(--ink);border-top:.5px solid rgba(255,255,255,.06);padding:1.25rem 4rem;display:flex;justify-content:space-between}
 .footer span{font-size:11px;color:rgba(255,255,255,.25);letter-spacing:.06em}
 .footer em{font-family:'DM Serif Display',serif;font-style:italic}
-/* 언어별 span */
+/* 언어별 span — 기본은 ko만 보임, JS가 로드되기 전 깜빡임 방지 */
 .lang-en,.lang-zh,.lang-ja{display:none}
 .lang-ko{display:inline}
-
-/* =====================
-   RESPONSIVE — 1024px
-   ===================== */
+/* RESPONSIVE */
 @media(max-width:1024px){
   .hero{grid-template-columns:1fr}
   .hero-right{min-height:60vh}
@@ -194,10 +183,6 @@ html[lang=ja] body{font-family:'Noto Serif JP','DM Sans',sans-serif}
   .contact-bg{width:100%}
   .etc-grid{grid-template-columns:1fr}
 }
-
-/* =====================
-   RESPONSIVE — 768px (모바일)
-   ===================== */
 @media(max-width:768px){
   .section{padding:3rem 1.5rem}
   .hero-left{padding:4rem 1.5rem}
@@ -208,28 +193,31 @@ html[lang=ja] body{font-family:'Noto Serif JP','DM Sans',sans-serif}
   .about-portrait{max-width:240px;height:290px;margin:0 auto}
   .strength-box{padding:1.5rem}
   .case-card{padding:1.5rem}
-  .case-featured{grid-template-columns:1fr}
+  .case-featured{grid-template-columns:1fr!important;gap:2rem!important}
+  .case-featured-left,.case-featured-right{min-width:0!important;overflow:hidden!important}
+  .case-gallery{grid-template-columns:1fr!important}
+  .case-gallery.large-first>:first-child{grid-column:1!important;height:auto!important}
   .p-item{grid-template-columns:50px 1fr auto;gap:1rem;padding:1.5rem}
   .p-num{font-size:2rem}
   .contact{padding:3rem 1.5rem}
   .contact-bg{display:none}
   .footer{padding:1rem 1.5rem;flex-direction:column;gap:.5rem}
 }
+@media(max-width:480px){
+  .nav-top-row{padding:0 1rem}
+  .nav-bottom-row{padding:5px 1rem;gap:.4rem}
+  .nav-links{gap:.4rem}
+  .lang-btn{padding:4px 7px;font-size:8px}
+  .section{padding:2rem 1rem}
+  .hero-left{padding:3rem 1rem}
+}
 </style>
 </head>
 <body>
 
 <nav class="nav">
-  <!-- PC: 로고 + 메뉴 + 언어 한 줄 / 모바일: 로고 + 언어만 -->
-  <div class="nav-row1">
+  <div class="nav-top-row">
     <div class="nav-logo">박인정 朴仁貞<em>Shine</em></div>
-    <ul class="nav-links">
-      <li><a href="#about" id="nav-about">소개</a></li>
-      <li><a href="#strengths" id="nav-strengths">강점</a></li>
-      <li><a href="#cases" id="nav-cases">케이스</a></li>
-      <li><a href="#problems" id="nav-problems">문제 해결</a></li>
-      <li><a href="#contact" id="nav-contact">연락</a></li>
-    </ul>
     <div class="lang-selector">
       <button class="lang-btn active" data-lang="ko">한국어</button>
       <button class="lang-btn" data-lang="en">English</button>
@@ -237,14 +225,13 @@ html[lang=ja] body{font-family:'Noto Serif JP','DM Sans',sans-serif}
       <button class="lang-btn" data-lang="ja">日本語</button>
     </div>
   </div>
-  <!-- 모바일 전용 2행: 메뉴링크 -->
-  <div class="nav-row2">
+  <div class="nav-bottom-row">
     <ul class="nav-links">
-      <li><a href="#about">소개</a></li>
-      <li><a href="#strengths">강점</a></li>
-      <li><a href="#cases">케이스</a></li>
-      <li><a href="#problems">문제 해결</a></li>
-      <li><a href="#contact">연락</a></li>
+      <li><a href="#about" id="nav-about">소개</a></li>
+      <li><a href="#strengths" id="nav-strengths">강점</a></li>
+      <li><a href="#cases" id="nav-cases">케이스</a></li>
+      <li><a href="#problems" id="nav-problems">문제 해결</a></li>
+      <li><a href="#contact" id="nav-contact">연락</a></li>
     </ul>
   </div>
 </nav>
@@ -316,7 +303,7 @@ html[lang=ja] body{font-family:'Noto Serif JP','DM Sans',sans-serif}
     <p>
       <span class="lang-ko">현재 서울의 aSSIST·스위스의 SDG Management School에서 <strong>경영학 박사과정</strong> 중입니다. '오래 살아남는 브랜드'의 조건을 연구하며, 현장 경험과 이론적 깊이를 동시에 쌓고 있습니다.</span>
       <span class="lang-en">I am currently pursuing a dual degree of <strong>Ph.D. in Business Administration and DBA</strong> at aSSIST in Seoul and the SDG Management School in Switzerland. I am researching the conditions for "long-lasting brands," building both practical experience and theoretical depth simultaneously.</span>
-      <span class="lang-zh">我目前正在首尔aSSIST商学院和瑞士SDG管理学院攻<strong>读工商管理博士（PhD）和工商管理博士（DBA）双学位</strong>。我的研究方向是"长寿品牌"的形成条件，力求在积累实践经验的同时，深入钻研理论知识。</span>
+      <span class="lang-zh">我目前正在首尔aSSIST商学院和瑞士SDG管理学院攻<strong>读工商管理博士（PhD）和工商管理博士（DBA）双学位</strong>。我的研究方向是“长寿品牌”的形成条件，力求在积累实践经验的同时，深入钻研理论知识。</span>
       <span class="lang-ja">現在、ソウルのaSSISTとスイスのSDGマネジメントスクールで、<strong>経営学博士号（Ph.D.）と経営学博士号（DBA）の二重学位取得</strong>を目指しています。「長続きするブランド」の条件について研究しており、実践的な経験と理論的な深みを同時に培っています。</span>
     </p>
     <div style="margin-top:1.5rem">
@@ -416,7 +403,7 @@ html[lang=ja] body{font-family:'Noto Serif JP','DM Sans',sans-serif}
           <li style="margin-bottom:.5rem">🔹 <span class="lang-ko">초기 1개 → 전국 30개 직영·가맹 매장 확장</span><span class="lang-en">1 → 30 National Locations (direct + franchise)</span><span class="lang-zh">从1家扩展到30家全国门店</span><span class="lang-ja">1店舗→全国30店舗へ拡大</span></li>
           <li style="margin-bottom:.5rem">🔹 <span class="lang-ko">페이스북 200명 → 12,200명 (6,100% 성장)</span><span class="lang-en">Facebook 200 → 12,200 Followers (+6,100%)</span><span class="lang-zh">Facebook 200 → 12,200粉丝（增长6,100%）</span><span class="lang-ja">Facebook 200→12,200フォロワー（成長6,100%）</span></li>
           <li style="margin-bottom:.5rem">🔹 <span class="lang-ko">SBS뉴스·tvN 자연 노출 다수</span><span class="lang-en">Multiple SBS News & tvN organic features</span><span class="lang-zh">SBS新闻和tvN多次自然曝光</span><span class="lang-ja">SBSニュース・tvN複数の自然露出</span></li>
-          <li>🔹 <span class="lang-ko"><strong>15년 이상 지속된 파트너십</strong>(2009년부터 2025년까지)</span><span class="lang-en">15+ Year Continued Partnership</span><span class="lang-zh">15年以上持续合作</span><span class="lang-ja">15年以上の継続パートナーシップ</span></li>
+          <li style="margin-bottom:.5rem">🔹 <span class="lang-ko"><strong>15년 이상 지속된 파트너십</strong>(2009년부터 2025년까지)</span><span class="lang-en">15+ Year Continued Partnership</span><span class="lang-zh">15年以上持续合作</span><span class="lang-ja">15年以上の継続パートナーシップ</span></li>         
         </ul>
       </div>
       <div style="margin-top:1.5rem;padding:1.25rem 1.5rem;background:rgba(45,74,62,0.06);border-radius:4px;border:.5px solid rgba(45,74,62,0.15)">
@@ -846,15 +833,10 @@ html[lang=ja] body{font-family:'Noto Serif JP','DM Sans',sans-serif}
     /* 1) html[lang] 변경 (SEO·스크린리더) */
     document.documentElement.lang = lang;
 
-    /* 2) nav 메뉴 텍스트 (row1 + row2 모두) */
+    /* 2) nav 메뉴 텍스트 */
     NAV_IDS.forEach(function(id, i) {
       var el = document.getElementById(id);
       if (el) el.textContent = NAV[lang][i];
-    });
-    /* row2 메뉴 텍스트 동기화 */
-    var row2links = document.querySelectorAll('.nav-row2 .nav-links a');
-    row2links.forEach(function(a, i) {
-      a.textContent = NAV[lang][i];
     });
 
     /* 3) lang-XX 스팬 토글 */
